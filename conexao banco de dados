@@ -1,0 +1,22 @@
+package Classes_de_Conexoes;
+
+import javax.swing.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class Conexao_com_Banco {
+
+    public Connection conectaDB() {
+        Connection con = null;
+
+            try {
+               String url = "jdbc:mysql://localhost:3306/usuarios?user=root&password=root";
+               con = DriverManager.getConnection(url);
+
+            } catch (SQLException erro) {
+                JOptionPane.showMessageDialog(null, "ConexaoDAO" + erro.getMessage());
+            }
+            return con;
+        }
+    }
